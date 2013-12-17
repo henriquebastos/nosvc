@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/henriquebastos/nosvc.png?branch=master
+    :target: https://travis-ci.org/henriquebastos/nosvc
+
 License
 -------
 
