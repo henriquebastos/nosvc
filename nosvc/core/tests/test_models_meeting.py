@@ -8,6 +8,7 @@ class MeetingModelTest(TestCase):
     def setUp(self):
         self.obj = Meeting.objects.create(
             title='Meeting Title',
+            slug='meeting-title',
             headline='Meeting headline.',
             about='About the meeting.',
             location='Meeting address.',
