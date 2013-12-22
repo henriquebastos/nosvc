@@ -10,7 +10,7 @@ class Meeting(TimeStampedModel):
     # updates
     # dynamic fields
     title = models.CharField(max_length=255)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     headline = models.TextField(max_length=140)
     about = models.TextField()
     location = models.TextField()

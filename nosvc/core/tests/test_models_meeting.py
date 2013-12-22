@@ -1,4 +1,5 @@
 # coding: utf-8
+from django.db import IntegrityError
 from django.test import TestCase
 from datetime import datetime
 from nosvc.core.models import Meeting
@@ -30,3 +31,15 @@ class MeetingModelTest(TestCase):
         self.assertFalse(self.obj.visible)
         self.assertFalse(self.obj.confirmed)
         self.assertFalse(self.obj.finished)
+
+    def test_slug_is_unique(self):
+        obj = Meeting(
+            title='Meeting Title',
+            slug='meeting-title',
+            headline='Meeting headline.',
+            about='About the meeting.',
+            location='Meeting address.',
+            when='Quarta, 11 de Dezembro de 2013 das 19h às 22h.',
+            expiration='2014-01-01'
+        )
+        self.assertRaises(IntegrityError, obj.save)
