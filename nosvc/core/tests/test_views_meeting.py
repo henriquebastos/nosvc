@@ -2,7 +2,7 @@
 from django.test import TestCase
 
 
-class MettingDetailTest(TestCase):
+class MeetingDetailTest(TestCase):
     def setUp(self):
         self.resp = self.client.get('/some-meeting/')
 
