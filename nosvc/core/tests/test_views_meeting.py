@@ -2,6 +2,20 @@
 from django.test import TestCase
 
 
+class MeetingCreateGetTest(TestCase):
+    def setUp(self):
+        self.resp = self.client.get('/new/')
+
+    def test_get(self):
+        self.assertEqual(200, self.resp.status_code)
+
+    def test_template(self):
+        self.assertTemplateUsed(self.resp, 'core/meeting_form.html')
+
+    def test_context(self):
+        self.assertIn('form', self.resp.context)
+
+
 class MeetingDetailTest(TestCase):
     def setUp(self):
         self.resp = self.client.get('/some-meeting/')

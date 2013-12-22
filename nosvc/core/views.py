@@ -1,5 +1,7 @@
 # coding: utf-8
 from django.shortcuts import render
+from django.views.generic import CreateView
+from nosvc.core.models import Meeting
 
 
 def home(request):
@@ -8,3 +10,7 @@ def home(request):
 
 def meeting_detail(request, slug):
     return render(request, 'core/meeting_detail.html')
+
+
+class MeetingCreateView(CreateView):
+    model = Meeting
