@@ -32,6 +32,9 @@ class MeetingModelTest(TestCase):
         self.assertFalse(self.obj.confirmed)
         self.assertFalse(self.obj.finished)
 
+    def test_url(self):
+        self.assertEqual('/meeting-title/', self.obj.get_absolute_url())
+
     def test_slug_is_unique(self):
         obj = Meeting(
             title='Meeting Title',
