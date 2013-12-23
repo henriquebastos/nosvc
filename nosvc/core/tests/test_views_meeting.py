@@ -1,5 +1,6 @@
 # coding: utf-8
 from django.test import TestCase
+from nosvc.core.forms import MeetingForm
 
 
 class MeetingCreateGetTest(TestCase):
@@ -13,7 +14,7 @@ class MeetingCreateGetTest(TestCase):
         self.assertTemplateUsed(self.resp, 'core/meeting_form.html')
 
     def test_context(self):
-        self.assertIn('form', self.resp.context)
+        self.assertIsInstance(self.resp.context['form'], MeetingForm)
 
 
 class MeetingDetailTest(TestCase):
