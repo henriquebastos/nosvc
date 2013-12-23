@@ -8,3 +8,4 @@ django-decouple==2.1
 django-suit==0.2.5
 django-model-utils==1.5.0
 django-extensions==1.2.5
+django-floppyforms==1.1
