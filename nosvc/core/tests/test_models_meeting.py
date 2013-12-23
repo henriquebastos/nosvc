@@ -12,9 +12,12 @@ class MeetingModelTest(TestCase):
             slug='meeting-title',
             headline='Meeting headline.',
             about='About the meeting.',
+            city=1,
             location='Meeting address.',
-            when='Quarta, 11 de Dezembro de 2013 das 19h às 22h.',
-            expiration='2014-01-01'
+            schedule='Quarta, 11 de Dezembro de 2013 das 19h às 22h.',
+            deadline='2014-01-01',
+            price='30.00'
+
         )
 
     def test_create(self):
@@ -41,8 +44,10 @@ class MeetingModelTest(TestCase):
             slug='meeting-title',
             headline='Meeting headline.',
             about='About the meeting.',
+            city=1,
             location='Meeting address.',
-            when='Quarta, 11 de Dezembro de 2013 das 19h às 22h.',
-            expiration='2014-01-01'
+            schedule='Quarta, 11 de Dezembro de 2013 das 19h às 22h.',
+            deadline='2014-01-01',
+            price='30.00'
         )
         self.assertRaises(IntegrityError, obj.save)
