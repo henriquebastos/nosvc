@@ -7,6 +7,13 @@ from nosvc.core.models import Meeting
 class MeetingForm(forms.ModelForm):
     tos = forms.BooleanField(label=_(u'Eu li Como funciona e os Termos de uso do Nós.vc e estou de acordo.'))
 
+    def __init__(self, *args, **kwargs):
+        super(MeetingForm, self).__init__(*args, **kwargs)
+
+        for f in self.fields.values():
+            if f.widget.__class__.__name__ == 'Textarea':
+                f.widget.attrs.update({'rows': 4})
+
     class Meta:
         model = Meeting
         exclude = ('finished', 'confirmed')
