@@ -1,230 +1,136 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
-  <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    body {
-      background: #F8F4EE;
-      color: #5d5d5d;
-      font-family: "Helvetica Neue","Arial","Sans-serif";
-    }
-    h1 {
-      font-family: 'Dosis';
-      font-weight: 300;
-    }
-    h3 {
-      color: #5d5d5d;
-      font-family: 'Dosis';
-      font-weight: 300;
-      text-shadow: rgb(255, 255, 255) 1px 1px 0px;
-    }
-    .layout {
-      max-width: 960px;
-      width: 100%;
-      margin: auto;
-    }
+{% extends 'core/base.html' %}
 
-    .sidebar {
-      padding: 0 2em;
-    }
+{% block sidebar %}
+  <h3>Como criar e organizar um encontro sobre o que você quiser:</h3>
+  <ol>
+    <li>
+      Preencha o formulário com todo seu gingado e talento.
+      Crie um curso, debate, workshop, open space, imersão, sessão de cinema
+      ou qualquer outra desculpa pra se encontrar.
+    </li>
+    <li>
+      Vamos ler sua proposta e responder por email com nossos próprios dedos.
+      Quando estiver tudo ok, as inscrições serão abertas.
+    </li>
+    <li>
+      O encontro será organizado por você no mundo real.
+      Você define o prazo de inscrições e o número mínimo de participantes.
+    </li>
+    <li>
+      Tá meio perdido? Leia nossos <a href="http://blog.nos.vc/category/guias/">Guias</a>
+      pra fazer o seu encontro acontecer.
+    </li>
+  </ol>
+{% endblock sidebar %}
 
-    .sidebar li {
-      font-size: 14px;
-      margin: 1em 0;
-    }
+{% block content %}
+  <h1>Compartilhe sua <span>paixão</span> e encontre outros <span>apaixonados</span>.</h1>
 
-    .content {
-      background: #F9F9F9;
-      padding: 0 2em;
-    }
-    .pure-form legend {
-      border-bottom: dashed 1px #d8d3d3;
-      color: #5d5d5d;
-      font-family: "Dosis";
+  <form action="." method="post" class="pure-form pure-form-stacked">
+    <fieldset>
+      <legend>O encontro</legend>
+      {%  csrf_token %}
+      {{ form.non_field_errors }}
 
-      text-transform: uppercase;
-    }
-    .pure-form-stacked label {
-      color: #B178AD;
-      font-family: "Dosis";
-      font-weight: lighter;
-      font-size: 1.2em;
-      margin-top: 1em;
-    }
-    .pure-form-stacked input,
-    .pure-form-stacked textarea,
-    .pure-form-stacked select {
-      width: 100%;
-    }
-    .pure-form-stacked input[type="checkbox"] {
-      width: auto;
-    }
-    .pure-form-stacked p {
-      font-size: 0.8em;
-    }
-    .pure-form-stacked input + p,
-    .pure-form-stacked textarea + p,
-    .pure-form-stacked select + p {
-      display: none;
-    }
+      <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+      {{ form.title }}
+      {{ form.title.errors }}
+      <p>{{ form.title.help_text }}</p>
 
-    .pure-form-stacked input:focus + p,
-    .pure-form-stacked textarea:focus + p,
-    .pure-form-stacked select:focus + p {
-      display: block;
-    }
-  </style>
-</head>
-<body>
-  <div class="pure-g-r layout">
-    <div class="pure-u pure-menu pure-menu-open pure-menu-horizontal">
-      <ul>
-          <li><a href="#">Explorar encontros</a></li>
-          <li class="pure-menu-selected"><a href="#">Criar um encontro</a></li>
-          <li><a href="#">Como funciona</a></li>
-          <li><a href="#">Busca</a></li>
-          <li><a href="#">Perfil</a></li>
-      </ul>
-    </div>
-    <div class="pure-u-1-3">
-      <div class="sidebar">
-        <h3>Como criar e organizar um encontro sobre o que você quiser:</h3>
-        <ol>
-          <li>
-            Preencha o formulário com todo seu gingado e talento.
-            Crie um curso, debate, workshop, open space, imersão, sessão de cinema
-            ou qualquer outra desculpa pra se encontrar.
-          </li>
-          <li>
-            Vamos ler sua proposta e responder por email com nossos próprios dedos.
-            Quando estiver tudo ok, as inscrições serão abertas.
-          </li>
-          <li>
-            O encontro será organizado por você no mundo real.
-            Você define o prazo de inscrições e o número mínimo de participantes.
-          </li>
-          <li>
-            Tá meio perdido? Leia nossos <a href="http://blog.nos.vc/category/guias/">Guias</a>
-            pra fazer o seu encontro acontecer.
-          </li>
-        </ol>
+      <label for="{{ form.about.id_for_label }}">{{ form.about.label }}</label>
+      {{ form.about }}
+      {{ form.about.errors }}
+      <p>{{ form.about.help_text }}</p>
+
+      <label for="{{ form.headline.id_for_label }}">{{ form.headline.label }}</label>
+      {{ form.headline }}
+      {{ form.headline.errors }}
+      <p>{{ form.headline.help_text }}</p>
+
+      <label for="{{ form.schedule.id_for_label }}">{{ form.schedule.label }}</label>
+      {{ form.schedule }}
+      {{ form.schedule.errors }}
+      <p>{{ form.schedule.help_text }}</p>
+
+      <label for="{{ form.deadline.id_for_label }}">{{ form.deadline.label }}</label>
+      {{ form.deadline }}
+      {{ form.deadline.errors }}
+      <p>{{ form.deadline.help_text }}</p>
+
+      <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
+      {{ form.city }}
+      {{ form.city.errors }}
+      <p>{{ form.city.help_text }}</p>
+
+      <label for="{{ form.location.id_for_label }}">{{ form.location.label }}</label>
+      {{ form.location }}
+      {{ form.location.errors }}
+      <p>{{ form.location.help_text }}</p>
+
+      <label for="{{ form.video.id_for_label }}">{{ form.video.label }}</label>
+      {{ form.video }}
+      {{ form.video.errors }}
+      <p>{{ form.video.help_text }}</p>
+
+      <label for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
+      {{ form.image }}
+      {{ form.image.errors }}
+      <p>{{ form.image.help_text }}</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>As pessoas</legend>
+
+      {% comment %}
+      <div class="pure-control-group">
+        <label for="{{ form.host.id_for_label }}">{{ form.host.label }}</label>
+        {{ form.host }}
+        {{ form.host.errors }}
+        <p>{{ form.host.help_text }}</p>
       </div>
-    </div>
-    <div class="pure-u-2-3">
-      <div class="content">
-        <h1>Compartilhe sua <span>paixão</span> e encontre outros <span>apaixonados</span>.</h1>
+      {% endcomment %}
 
-        <form action="." method="post" class="pure-form pure-form-stacked">
-          <fieldset>
-            <legend>O encontro</legend>
-            {%  csrf_token %}
-            {{ form.non_field_errors }}
+      <label for="{{ form.about_host.id_for_label }}">{{ form.about_host.label }}</label>
+      {{ form.about_host }}
+      {{ form.about_host.errors }}
+      <p>{{ form.about_host.help_text }}</p>
+    </fieldset>
 
-            <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
-            {{ form.title }}
-            {{ form.title.errors }}
-            <p>{{ form.title.help_text }}</p>
+    <fieldset>
+      <legend>As inscrições</legend>
 
-            <label for="{{ form.about.id_for_label }}">{{ form.about.label }}</label>
-            {{ form.about }}
-            {{ form.about.errors }}
-            <p>{{ form.about.help_text }}</p>
+      <label for="{{ form.min_attendees.id_for_label }}">{{ form.min_attendees.label }}</label>
+      {{ form.min_attendees }}
+      {{ form.min_attendees.errors }}
+      <p>{{ form.min_attendees.help_text }}</p>
 
-            <label for="{{ form.headline.id_for_label }}">{{ form.headline.label }}</label>
-            {{ form.headline }}
-            {{ form.headline.errors }}
-            <p>{{ form.headline.help_text }}</p>
+      <label for="{{ form.max_attendees.id_for_label }}">{{ form.max_attendees.label }}</label>
+      {{ form.max_attendees }}
+      {{ form.max_attendees.errors }}
+      <p>{{ form.max_attendees.help_text }}</p>
 
-            <label for="{{ form.schedule.id_for_label }}">{{ form.schedule.label }}</label>
-            {{ form.schedule }}
-            {{ form.schedule.errors }}
-            <p>{{ form.schedule.help_text }}</p>
+      <label for="{{ form.deadline.id_for_label }}">{{ form.deadline.label }}</label>
+      {{ form.deadline }}
+      {{ form.deadline.errors }}
+      <p>{{ form.deadline.help_text }}</p>
 
-            <label for="{{ form.deadline.id_for_label }}">{{ form.deadline.label }}</label>
-            {{ form.deadline }}
-            {{ form.deadline.errors }}
-            <p>{{ form.deadline.help_text }}</p>
+      <label for="{{ form.price.id_for_label }}">{{ form.price.label }}</label>
+      {{ form.price }}
+      {{ form.price.errors }}
+      <p>{{ form.price.help_text }}</p>
 
-            <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
-            {{ form.city }}
-            {{ form.city.errors }}
-            <p>{{ form.city.help_text }}</p>
+      <label for="{{ form.questions.id_for_label }}">{{ form.questions.label }}</label>
+      {{ form.questions }}
+      {{ form.questions.errors }}
+      <p>{{ form.questions.help_text }}</p>
 
-            <label for="{{ form.location.id_for_label }}">{{ form.location.label }}</label>
-            {{ form.location }}
-            {{ form.location.errors }}
-            <p>{{ form.location.help_text }}</p>
+      <label for="{{ form.tos.id_for_label }}" class="pure-checkbox">
+        {{ form.tos }}
+        {{ form.tos.label }}
+      </label>
+      {{ form.tos.errors }}
 
-            <label for="{{ form.video.id_for_label }}">{{ form.video.label }}</label>
-            {{ form.video }}
-            {{ form.video.errors }}
-            <p>{{ form.video.help_text }}</p>
-
-            <label for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
-            {{ form.image }}
-            {{ form.image.errors }}
-            <p>{{ form.image.help_text }}</p>
-          </fieldset>
-
-          <fieldset>
-            <legend>As pessoas</legend>
-
-            {% comment %}
-            <div class="pure-control-group">
-              <label for="{{ form.host.id_for_label }}">{{ form.host.label }}</label>
-              {{ form.host }}
-              {{ form.host.errors }}
-              <p>{{ form.host.help_text }}</p>
-            </div>
-            {% endcomment %}
-
-            <label for="{{ form.about_host.id_for_label }}">{{ form.about_host.label }}</label>
-            {{ form.about_host }}
-            {{ form.about_host.errors }}
-            <p>{{ form.about_host.help_text }}</p>
-          </fieldset>
-
-          <fieldset>
-            <legend>As inscrições</legend>
-
-            <label for="{{ form.min_attendees.id_for_label }}">{{ form.min_attendees.label }}</label>
-            {{ form.min_attendees }}
-            {{ form.min_attendees.errors }}
-            <p>{{ form.min_attendees.help_text }}</p>
-
-            <label for="{{ form.max_attendees.id_for_label }}">{{ form.max_attendees.label }}</label>
-            {{ form.max_attendees }}
-            {{ form.max_attendees.errors }}
-            <p>{{ form.max_attendees.help_text }}</p>
-
-            <label for="{{ form.deadline.id_for_label }}">{{ form.deadline.label }}</label>
-            {{ form.deadline }}
-            {{ form.deadline.errors }}
-            <p>{{ form.deadline.help_text }}</p>
-
-            <label for="{{ form.price.id_for_label }}">{{ form.price.label }}</label>
-            {{ form.price }}
-            {{ form.price.errors }}
-            <p>{{ form.price.help_text }}</p>
-
-            <label for="{{ form.questions.id_for_label }}">{{ form.questions.label }}</label>
-            {{ form.questions }}
-            {{ form.questions.errors }}
-            <p>{{ form.questions.help_text }}</p>
-
-            <label for="{{ form.tos.id_for_label }}" class="pure-checkbox">
-              {{ form.tos }}
-              {{ form.tos.label }}
-            </label>
-            {{ form.tos.errors }}
-
-            <button type="submit" class="pure-button pure-button-primary">Enviar</button>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+      <button type="submit" class="pure-button pure-button-primary">Enviar</button>
+    </fieldset>
+  </form>
+{% endblock content %}

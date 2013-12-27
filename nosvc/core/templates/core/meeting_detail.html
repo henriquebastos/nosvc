@@ -1,43 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
+{% extends 'core/base.html' %}
 
-  <h1>Meeting Title</h1>
-
-  <img src="/media/meeting-banner.jpg"/>
-
-  <p>
-    Meeting headline.
-  </p>
-
-  <iframe frameborder="0" height="355" width="614"
-          src="http://player.vimeo.com/video/1?title=0&byline=0&portrait=0">
-  </iframe>
-
-  <p>Compartilhe no Facebook ou no Twitter</p>
-
-  <h2>Sobre o encontro</h2>
-
-  <p>
-    About the meeting.
-  </p>
-
-  <h2>Com Host:</h2>
-  <img src="/media/host-picture.jpg"/>
-
-  <p>
-    <a href="/users/1-host">Host</a>
-  </p>
-  <ul>
-    <li><a href="#" target="_blank">Perfil no facebook</a></li>
-    <li><a href="#" target="_blank">Perfil no twitter</a></li>
-    <li><a href="#" target="_blank">Outro</a></li>
-  </ul>
-  <p>
-    About the host.
-  </p>
-
+{% block sidebar %}
   <h2>Inscrições encerradas</h2>
 
   <p>Encontro Confirmado!</p>
@@ -49,6 +12,7 @@
   <p>Falta 1 inscrito para confirmar o encontro</p>
 
   <p><a href="#">Me inscrever e fazer acontecer</a></p>
+
 
   <h2>Tá confirmado?</h2>
 
@@ -106,7 +70,43 @@
       <p>Inscrito em 09/12/2013</p>
     </li>
   </ul>
+{% endblock sidebar %}
 
+{% block content %}
+  <h1>Segundo Encontro de Introdução ao Cohousing</h1>
+
+  <img src="/media/meeting-banner.jpg"/>
+
+  <p>
+    Cohousing: um grupo de pessoas amigas escolhem ser vizinhas e compartilhar espaços para uso comum com a intenção de criar laços comunitários
+  </p>
+
+  <iframe frameborder="0" height="355" width="614"
+          src="http://player.vimeo.com/video/1?title=0&byline=0&portrait=0">
+  </iframe>
+
+  <p>Compartilhe no Facebook ou no Twitter</p>
+
+  <h2>Sobre o encontro</h2>
+
+  <p>
+    Vamos conversar sobre o que caracteriza Cohousing e suas diferentes tipologias. Vamos apresentar uma proposta de trabalho em duas fases na direção de sua realização. Cada fase se constituirá de algumas etapas. A primeira caminha na construção do grupo e a segunda na construção do lugar.
+  </p>
+
+  <h2>Com Host:</h2>
+  <img src="/media/host-picture.jpg"/>
+
+  <p>
+    <a href="/users/1-host">Host</a>
+  </p>
+  <ul>
+    <li><a href="#" target="_blank">Perfil no facebook</a></li>
+    <li><a href="#" target="_blank">Perfil no twitter</a></li>
+    <li><a href="#" target="_blank">Outro</a></li>
+  </ul>
+  <p>
+    Lilian Avivia Lubochinski é arquiteta urbanista, morou em um kibutz em 1967. Cursou a faculdade de arquitetura em Israel quando se iniciou nos estudos de gerontologia. Trabalha amplamente com processos participativos de criação e projetos, design universal (inclusivo), sustentabilidade na construção , eficiência energética e harmonização ao território. Sua arquitetura tem especial sensibilidade para espaços de convivência social. Na proposta de Cohousing tecnologias sociais como Prática do Diáolgo, Visionamento e Dragon Dreaming se entrelaçam resultando na materialização do desejo coletivo.
+  </p>
 
   <h2>Atualizações (1)</h2>
 
@@ -115,11 +115,17 @@
   <p>10/12/2013</p>
   <hr/>
   <p>
-    Message
+    Pessoal, <br>
+    <br>
+    Me desculpem mas tivemos que mudar de endereço de novo. <br>
+    O encontro vai acontecer no Ekoa Café na rua fradique coutinho, 914. <br>
+    Fiz de tudo para que as alternativas ficassem o mais perto possível do local original para que nao gerasse muito desconforto para voces. <br>
+    Agradeço o apoio e compreensão. <br>
+    <br>
+    Lilian <br>
   </p>
 
   <h3>Recomende, pergunte e construa este encontro:</h3>
 
   <p>Comentários do Facebook.</p>
-</head>
-<body>
+{% endblock content %}
