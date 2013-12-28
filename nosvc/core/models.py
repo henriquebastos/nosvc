@@ -1,6 +1,7 @@
 # coding: utf-8
 from django.db import models
 from model_utils.models import TimeStampedModel
+from embed_video.fields import EmbedVideoField
 
 
 CITIES = (
@@ -53,7 +54,7 @@ class Meeting(TimeStampedModel):
     city = models.IntegerField(choices=CITIES)
     location = models.TextField()
 
-    video = models.URLField(blank=True, null=True)
+    video = EmbedVideoField(blank=True, null=True)
     image = models.URLField(blank=True, null=True)
 
     visible = models.BooleanField(default=False)

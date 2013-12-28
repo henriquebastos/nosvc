@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'compressor',
     'floppyforms',
     'floppymodelforms',
+    'embed_video',
     'nosvc.core',
 )
 

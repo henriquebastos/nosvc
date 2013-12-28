@@ -12,3 +12,4 @@ django-floppyforms==1.1
 django-floppymodelforms==0.1.0
 django-compressor==1.3
 BeautifulSoup==3.2.1
+django-embed-video==0.7
