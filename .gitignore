@@ -15,3 +15,4 @@
 /.env
 staticfiles/
 .idea/
+.sass-cache/
