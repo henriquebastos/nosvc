@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'compressor',
     'floppyforms',
     'floppymodelforms',
     'nosvc.core',
@@ -88,3 +89,15 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR.child('staticfiles')
 STATIC_URL = '/static/'
+
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-sass', 'sass --compass -r ninesixty {infile} {outfile}'),
+    ('text/x-scss', 'sass --scss --compass -r ninesixty {infile} {outfile}'),
+)
