@@ -180,11 +180,10 @@ body.detail {
     @include prepend-top();
   }
   #footer-frame {
-    widows: 100%;
+    //background-color: $footer-frame-bg-color;
   }
-
   footer {
-    @include column($blueprint-grid-columns);
+    @include container;
 
     $logo-columns: floor($blueprint-grid-columns / 8);
     $remain-columns: $blueprint-grid-columns - $logo-columns;
