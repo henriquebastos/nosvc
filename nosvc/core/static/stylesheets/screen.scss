@@ -1,5 +1,6 @@
 @import "blueprint/reset";
 @import "partials/base";
+@import "partials/fonts";
 @import "blueprint";
 @import "compass/typography/vertical_rhythm";
 @import "compass/typography/text/replacement";
@@ -94,7 +95,6 @@ body.detail {
     @include container;
   }
   #header-frame {
-    widows: 100%;
     background-color: $header-light-bg-color;
   }
   header {
@@ -107,18 +107,21 @@ body.detail {
 
     li {
       width: span(5);
+      line-height: rhythm(2);
       @include float-left;
+      text-align: center;
 
       a, a:hover, a:visited {
         color: $header-text-color;
         border-right: 1px solid $header-border-color;
         text-decoration: none;
-        line-height: rhythm(2);
+
         display: inline-block;
-        text-align: center;
         width: 100%;
+        height: 100%;
 
         img {
+          margin-right: $grid-background-gutter-width / 2;
           vertical-align: middle;
         }
       }
@@ -132,12 +135,9 @@ body.detail {
     .help a:hover {
       background-color: $header-help-hover-color;
     }
-    .search {
-      form {
-        @include blueprint-inline-form;
-        text-align: center;
-        border-right: 1px solid $header-border-color;
-      }
+    .search form {
+      @include blueprint-inline-form;
+      border-right: 1px solid $header-border-color;
     }
     .account {
       background-color: $header-light-bg-color;
