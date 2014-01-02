@@ -21,6 +21,10 @@ $blueprint-line-height: $base-line-height;
 * {
 	@include box-sizing(border-box);
 }
+
+// Warning: Don't use it with blueprint typography.
+//@include establish-baseline;
+
 $header-text-color: #D7D6D0;
 $header-border-color: #4b4a4a;
 
