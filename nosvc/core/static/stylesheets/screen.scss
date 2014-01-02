@@ -17,6 +17,10 @@ $blueprint-line-height: $base-line-height;
 @import "compass/css3/text-shadow";
 @import "blueprint/buttons";
 
+// Apply a natural box layout model to all elements
+* {
+	@include box-sizing(border-box);
+}
 $header-text-color: #D7D6D0;
 $header-border-color: #4b4a4a;
 
