@@ -99,6 +99,6 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_PRECOMPILERS = (
-    ('text/x-sass', 'sass --compass -r ninesixty {infile} {outfile}'),
-    ('text/x-scss', 'sass --scss --compass -r ninesixty {infile} {outfile}'),
+    ('text/x-sass', 'sass --compass {infile} {outfile}'),
+    ('text/x-scss', 'sass --scss --compass {infile} {outfile}'),
 )
