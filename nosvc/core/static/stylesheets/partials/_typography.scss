@@ -1,0 +1,122 @@
+@import "blueprint/colors";
+@import "compass/typography/links/link-colors";
+@import "compass/utilities/general/float";
+@import "compass/typography/vertical_rhythm";
+
+$blueprint-font-family: "Helvetica Neue", Arial, Helvetica, sans-serif !default;
+
+$blueprint-fixed-font-family: "andale mono", "lucida console", monospace !default;
+
+$blueprint-font-size: $base-font-size !default;
+$blueprint-line-height: $base-line-height !default;
+
+// Usage examples:
+// As a top-level mixin, apply to any page that includes the stylesheet:
+// <pre class="source-code sass">
+// +blueprint-typography
+// </pre>
+//
+// Scoped by a presentational class:
+// <pre class="source-code sass">
+// body.blueprint
+//  +blueprint-typography(true)
+// </pre>
+//
+// Scoped by semantic selectors:
+// <pre class="source-code sass">
+// body#page-1, body#page-2, body.a-special-page-type
+//   +blueprint-typography(true)
+// </pre>
+@mixin blueprint-typography($nested: false) {
+  @if $nested {
+    @include blueprint-typography-body;
+    @include blueprint-typography-defaults;
+  } @else {
+    body { @include blueprint-typography-body; }
+    @include blueprint-typography-defaults;
+  }
+}
+
+@mixin normal-text      { font-family: $blueprint-font-family; color: $font-color; }
+@mixin fixed-width-text { font: 1em $blueprint-fixed-font-family; line-height: $blueprint-line-height; }
+@mixin header-text      { font-weight: normal; color: $header-color; }
+@mixin quiet            { color: $quiet-color; }
+@mixin loud             { color: $loud-color; }
+
+@mixin blueprint-typography-body($font-size: $blueprint-font-size, $line-height: $blueprint-line-height) {
+  line-height: $line-height;
+  @include normal-text;
+  font-size: 100% * $font-size / $browser-default-font-size;
+}
+
+@mixin blueprint-typography-defaults {
+  #{headers(all)} { @include header-text;
+    img           { margin: 0; } }
+  h1 {
+    @include adjust-font-size-to(36px);
+    @include trailer(1, 36px);
+  }
+  h2 {
+    @include adjust-font-size-to(24px);
+    @include trailer(1, 24px);
+  }
+  h3 {
+    @include adjust-font-size-to(18px, 1); //force fit into 1 line
+    @include trailer(1, 18px);
+  }
+  h4 {
+    @include adjust-font-size-to(14px);
+    @include trailer(1, 14px);
+  }
+  h5 {
+    @include adjust-font-size-to(12px);
+    @include trailer(1, 12px);
+    font-weight: bold;
+  }
+  h6 {
+    @include adjust-font-size-to(12px);
+    font-weight: bold;
+  }
+  p {
+    @include trailer(1);
+    .left {
+      @include float-left;
+      margin: rhythm(1), rhythm(1) rhythm(1) 0;
+    }
+    .right {
+      @include float-right;
+      margin: rhythm(1) 0 rhythm(1) rhythm(1);
+    }
+  }
+  a               { text-decoration: underline; @include link-colors($link-color, $link-hover-color, $link-active-color, $link-visited-color, $link-focus-color); }
+  blockquote      { margin: rhythm(1); color: $alt-text-color; font-style: italic; }
+  strong, dfn     { font-weight: bold; }
+  em, dfn         { font-style: italic; }
+  sup, sub        { line-height: 0; }
+  abbr, acronym   { border-bottom: 1px dotted #666666; }
+  address         { margin: 0 0 rhythm(1); font-style: italic; }
+  del             { color: $alt-text-color; }
+  pre             { margin: rhythm(1) 0; white-space: pre; }
+  pre, code, tt   { @include fixed-width-text; }
+  li ul, li ol    { margin: 0; }
+  ul, ol          { margin: 0 0 rhythm(1) 0; padding-left: rhythm(1); }
+  ul              { list-style-type: disc; }
+  ol              { list-style-type: decimal; }
+  dl              { margin: 0 0 rhythm(1) 0;
+    dt            { font-weight: bold; } }
+  dd              { margin-left: rhythm(1); }
+  table           { margin-bottom: 1.4em; width: 100%; }
+  th              { font-weight: bold; }
+  thead th        { background: $blueprint-table-header-color; }
+  th, td, caption { padding: 4px 10px 4px 5px; }
+  table.striped tr:nth-child(even) td,
+  table         tr.even            td
+                  { background: $blueprint-table-stripe-color; }
+  tfoot           { font-style: italic; }
+  caption         { background: $blueprint-background-color; }
+  .quiet          { @include quiet; }
+  .loud           { @include loud; }
+  hr {
+    display: none;
+  }
+}

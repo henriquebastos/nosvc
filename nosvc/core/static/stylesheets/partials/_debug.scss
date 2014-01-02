@@ -1,0 +1,17 @@
+@import "compass/typography/vertical_rhythm";
+@import "blueprint/debug";
+
+
+@mixin showgrid($image: false) {
+  @if $image {
+    background: image-url($image);
+  }
+  @else {
+    @include grid-background(
+      $total    : $blueprint-grid-columns,
+      $column   : $blueprint-grid-width,
+      $gutter   : $blueprint-grid-margin,
+      $baseline : $base-line-height / $base-font-size * 1em
+    );
+  }
+}
