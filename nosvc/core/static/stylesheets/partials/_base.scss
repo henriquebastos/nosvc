@@ -1,10 +1,43 @@
-// Here is where you can define your constants for your application and to configure the blueprint framework.
-// Feel free to delete these if you want keep the defaults:
+$base-font-size: 10px;
+$blueprint-font-size: $base-font-size;
+$base-line-height: 20px;
+$blueprint-line-height: $base-line-height;
 
 $blueprint-grid-columns: 24;
 $blueprint-container-size: 950px;
 $blueprint-grid-margin: 10px;
 
-// Use this to calculate the width based on the total width.
-// Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+
+@import "compass";
+@import "blueprint/reset";
+@import "blueprint";
+@import "partials/debug";
+@import "partials/grid";
+@import "partials/typography";
+@import "partials/fonts";
+
+
+// Apply a natural box layout model to all elements
+* {
+	@include box-sizing(border-box);
+}
+
+// Warning: Don't use it with blueprint typography.
+//@include establish-baseline;
+
+body.bp {
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-interaction;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+form.bp {
+  @include blueprint-form;
+}

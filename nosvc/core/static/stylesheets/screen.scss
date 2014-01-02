@@ -1,29 +1,6 @@
-$base-font-size: 10px;
-$blueprint-font-size: $base-font-size;
-$base-line-height: 20px;
-$blueprint-line-height: $base-line-height;
-
-@import "blueprint/reset";
-@import "blueprint";
-@import "partials/debug";
-@import "partials/grid";
-@import "partials/typography";
-@import "compass/css3/box-sizing";
-
 @import "partials/base";
-@import "partials/fonts";
-@import "compass/typography/text/replacement";
-@import "compass/css3/border-radius";
-@import "compass/css3/text-shadow";
-@import "blueprint/buttons";
 
-// Apply a natural box layout model to all elements
-* {
-	@include box-sizing(border-box);
-}
 
-// Warning: Don't use it with blueprint typography.
-//@include establish-baseline;
 
 $header-text-color: #D7D6D0;
 $header-border-color: #4b4a4a;
@@ -46,27 +23,6 @@ $footer-frame-bg-color: #393738;
 // If you are doing a lot of stylesheet concatenation, it is suggested
 // that you scope your blueprint styles, so that you can better control
 // what pages use blueprint when stylesheets are concatenated together.
-body.bp {
-  @include blueprint-typography(true);
-  @include blueprint-utilities;
-  @include blueprint-interaction;
-
-
-  hr {
-    @include colruler;
-  }
-  hr.space {
-    @include colspacer;
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-}
-
-form.bp {
-  @include blueprint-form;
-}
 
 .video {
   width: 100%;
