@@ -119,11 +119,12 @@ body.detail {
 
     li {
       width: span(5);
-      line-height: rhythm(2);
       @include float-left;
       text-align: center;
+      line-height: rhythm(2);
 
       a, a:hover, a:visited {
+        @include adjust-font-size-to(13px);
         color: $header-text-color;
         border-right: 1px solid $header-border-color;
         text-decoration: none;
@@ -148,7 +149,6 @@ body.detail {
       background-color: $header-help-hover-color;
     }
     .search form {
-      @include blueprint-inline-form;
       border-right: 1px solid $header-border-color;
     }
     .account {
