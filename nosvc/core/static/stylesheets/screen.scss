@@ -1,16 +1,10 @@
 @import "partials/base";
+@import "partials/header";
 
 
 
-$header-text-color: #D7D6D0;
-$header-border-color: #4b4a4a;
 
-$header-light-bg-color: #696862;
-$header-dark-bg-color: #595853;
 
-$header-list-hover-color: #83B1DF;
-$header-new-hover-color: #b178ad;
-$header-help-hover-color: #ed6569;
 
 
 $footer-frame-bg-color: #393738;
@@ -66,55 +60,7 @@ body.detail {
   #container {
     @include container;
   }
-  #header-frame {
-    background-color: $header-light-bg-color;
-  }
-  header {
-    @include container;
-    background-color: $header-dark-bg-color;
-    color: $header-text-color;
-    font-family: "Dosis-SemiBold";
-    text-transform: uppercase;
-    @include text-shadow(black 1px 1px 0px);
 
-    li {
-      width: span(5);
-      @include float-left;
-      text-align: center;
-      line-height: rhythm(2);
-
-      a, a:hover, a:visited {
-        @include adjust-font-size-to(13px);
-        color: $header-text-color;
-        border-right: 1px solid $header-border-color;
-        text-decoration: none;
-
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-
-        img {
-          margin-right: $grid-background-gutter-width / 2;
-          vertical-align: middle;
-        }
-      }
-    }
-    .list a:hover {
-      background-color: $header-list-hover-color;
-    }
-    .new a:hover {
-      background-color: $header-new-hover-color;
-    }
-    .help a:hover {
-      background-color: $header-help-hover-color;
-    }
-    .search form {
-      border-right: 1px solid $header-border-color;
-    }
-    .account {
-      background-color: $header-light-bg-color;
-    }
-  }
   #featured {
     @include column($blueprint-grid-columns);
     //height: 432px;
