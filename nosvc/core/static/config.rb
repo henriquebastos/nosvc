@@ -1,4 +1,5 @@
 # Compass configuration file.
+require "susy"
 
 http_path = "/static/"
 css_dir = "stylesheets"
