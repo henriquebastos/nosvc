@@ -14,6 +14,33 @@ body {
   color: $text-color;
 }
 
+h1 {
+  color: $text-color;
+  font-family: "Dosis-Regular";
+  @include adjust-font-size-to(42px, 2);
+  @include leader(2, 42px);
+  @include trailer(1, 42px);
+  letter-spacing: -1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+h2 {
+  font-family: "Dosis-Light";
+  @include adjust-font-size-to(24px, 1.5);
+  @include leader(1, 24px);
+  @include trailer(1.5, 24px);
+  text-align: center;
+}
+h3 {
+  color: #83b1df;
+  font-family: "Dosis-Regular";
+  @include adjust-font-size-to(24px, 1);
+  @include leader(1, 24px);
+  @include trailer(1, 24px);
+}
+
+
+
 #container, footer {
   @include container;
 }
@@ -41,17 +68,6 @@ body {
     @include pad(1, 1, 16);
   }
 
-  h1 {
-    color: $text-color;
-    font-family: "Dosis-Regular";
-    @include adjust-font-size-to(42px, 2);
-    @include leader(2, 42px);
-    @include trailer(1, 42px);
-    letter-spacing: -1px;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
   .date-place {
     color: $text-color-light;
     background: image-url('meeting-detail-bg-dashed.gif') repeat-x left center;
@@ -75,14 +91,6 @@ body {
     }
   }
 
-  h2 {
-    font-family: "Dosis-Light";
-    @include adjust-font-size-to(24px, 1.5);
-    @include leader(1, 24px);
-    @include trailer(1.5, 24px);
-    text-align: center;
-  }
-
   .video {
     width: 100%;
     height: rhythm(20);
@@ -98,14 +106,6 @@ body {
   .social {
     min-height: rhythm(1);
     @include trailer(1);
-  }
-
-  h3 {
-    color: #83b1df;
-    font-family: "Dosis-Regular";
-    @include adjust-font-size-to(24px, 1);
-    @include leader(1, 24px);
-    @include trailer(1, 24px);
   }
 
   p {
