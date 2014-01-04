@@ -179,6 +179,87 @@ h3 {
 }
 */
 
+.status {
+  color: white;
+  background-color: #323334;
+  height: rhythm(10);
+  padding-top: 1em;
+
+  h2 {
+    font-family: "Dosis-Medium";
+    @include adjust-font-size-to(13px, 1.5);
+    @include leader(0.5, 13px);
+    text-align: left;
+    text-transform: uppercase;
+    text-shadow: rgba(0, 0, 0, 0.5);
+
+    width: 55%;
+
+    &.ribbon {
+
+      position: relative;
+      margin-left: -10px; //-2rem;
+      padding-left: 10px; //2rem;
+
+      border-color: rgba(0, 0, 0, 0.5);
+
+      &:before {
+        content: ' ';
+        position: absolute;
+
+        top: 0%;
+        right: -1px;
+
+        border-top-color: transparent;
+        border-right-color: inherit;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        border-style: solid;
+        border-width: 1.33em 1.33em;
+
+        width: 0;
+        height: 0;
+      }
+      &:after {
+        content: ' ';
+        position: absolute;
+
+        top: 100%;
+        left: 0%;
+
+        border-top: 0em solid transparent;
+        border-right-width: 10px;
+        border-right-color: inherit;
+        border-right-style: solid;
+        border-bottom: 10px solid transparent;
+        border-left: 0em solid transparent;
+
+        width: 0em;
+        height: 0em;
+      }
+      &.closed {
+        background-color: #D95C5C !important;
+        border-color: darken(#D95C5C, 15%) !important;
+        color: #74171C !important;
+        text-shadow: darken(#D95C5C, 10%) 1px 1px 0px;
+
+        &:before {
+          border-right-color: #323334 !important;
+        }
+      }
+      &.open {
+        background-color: #3DB290 !important;
+        border-color: darken(#3DB290, 15%) !important;
+        color: #fff !important;
+        text-shadow: darken(#3DB290, 20%) 1px 1px 0px;
+
+        &:before {
+          border-right-color: #323334 !important;
+        }
+      }
+    }
+  }
+}
 
 /*
 
