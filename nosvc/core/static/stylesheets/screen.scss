@@ -60,8 +60,7 @@ h3 {
   $content-columns: 16;
   $remain-columns: 8;
 
-  @include span-columns(16);
-  @include push(8);
+  @include span-columns(16 omega);
   @include leader(-5);
 
   h1, h2, h3, p, .social, .comments {
@@ -168,16 +167,14 @@ h3 {
     }
   }
 }
-/*
+
 #sidebar {
-  // One third of the grid columns, rounding down. With 24 cols, this is 8.
-  $sidebar-columns: floor($blueprint-grid-columns / 3);
-  $remain-columns: $blueprint-grid-columns - $sidebar-columns;
-  @include column($sidebar-columns);
-  @include pull($remain-columns, true);
-  @include prepend-top();
+  $content-columns: 8;
+  $remain-columns: 16;
+
+  @include span-columns(8);
+  //@include pull(17);
 }
-*/
 
 .status {
   color: white;
