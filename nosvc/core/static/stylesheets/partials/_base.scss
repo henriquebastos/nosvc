@@ -21,8 +21,10 @@ $grid-padding   : 0;
 
 @include establish-baseline;
 
+body {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
 
 @mixin susy-grid-background {
   @include grid-background($total-columns, $column-width, $gutter-width, $base-line-height, $grid-padding);
 }
-

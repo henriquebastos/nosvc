@@ -1,6 +1,10 @@
 @import "partials/base";
 @import "partials/header";
 
+.row, .col {
+  overflow: hidden;
+}
+
 $footer-frame-bg-color: #393738;
 
 $text-color: #5d5d5d;
@@ -20,42 +24,40 @@ body {
 
 #featured {
   width: 100%;
-  //height: 432px;
-  height: rhythm(18);
+  min-height: rhythm(18);
 }
 
 #content {
-  // Two thirds of the grid columns, rounding up.
-  // With 24 cols, this is 16.
-  $content-columns: ceil(2 * $total-columns / 3);
-  $remain-columns: $total-columns - $content-columns;
+  background-color: #F9F9F9;
 
-  @include span-columns($content-columns);
-  @include push($remain-columns);
+  $content-columns: 16;
+  $remain-columns: 8;
+
+  @include span-columns(16);
+  @include push(8);
   @include leader(-5);
 
-  background-color: rgba(255, 255, 255, 0.5);
+  h1, h2, h3, p, .social, .comments {
+    @include pad(1, 1, 16);
+  }
+
   h1 {
     color: $text-color;
     font-family: "Dosis-Regular";
-    @include adjust-font-size-to(41px, 3);
-    @include leader(2, 41px);
-    @include trailer(1, 41px);
-    @include pad(1,1);
+    @include adjust-font-size-to(42px, 2);
+    @include leader(2, 42px);
+    @include trailer(1, 42px);
     letter-spacing: -1px;
     text-align: center;
     text-transform: uppercase;
   }
 
-  ul {
-    background: image-url('meeting-detail-bg-dashed.gif') repeat-x left center;
-    display: inline-block;
-    width: 100%;
-
+  .date-place {
     color: $text-color-light;
+    background: image-url('meeting-detail-bg-dashed.gif') repeat-x left center;
     font-family: "Dosis-Regular";
     @include adjust-font-size-to(16px);
-    @include trailer(0.65, 16px);
+    @include trailer(1, 16px);
 
     li {
       width: columns(3, $content-columns);
@@ -78,20 +80,91 @@ body {
     @include adjust-font-size-to(24px, 1.5);
     @include leader(1, 24px);
     @include trailer(1.5, 24px);
-    @include pad(1, 1);
     text-align: center;
   }
 
-  .host {
-    @include clearfix;
+  .video {
+    width: 100%;
+    height: rhythm(20);
+    @include trailer(1);
 
-    .host-contact {
-      @include span-columns(6);
-      @include push(10);
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
     }
-    .host-about {
-      @include span-columns(10);
-      @include pull(6);
+  }
+
+  .social {
+    height: rhythm(1);
+    @include trailer(1);
+  }
+
+  h3 {
+    color: #83b1df;
+    font-family: "Dosis-Regular";
+    @include adjust-font-size-to(24px, 1);
+    @include leader(1, 24px);
+    @include trailer(1, 24px);
+  }
+
+  p {
+    @include leader(1);
+    @include trailer(1);
+  }
+
+  .profile {
+    @include span-columns(6 omega, $content-columns);
+    text-align: center;
+
+    .photo {
+      height: rhythm(9);
+      img {
+        @include border-radius(50%);
+      }
+    }
+    .name a {
+      color: #3772ae;
+      @include adjust-font-size-to(18px, 1);
+      font-family: "Dosis-Medium";
+      text-shadow: #fff 1px 1px 0px;
+      text-decoration: none;
+    }
+    li {
+      margin-right: gutter($content-columns);
+      display: inline-block;
+      a {
+        display: block;
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #3772ae;
+        &:hover {
+          background-color: lighten(#3772ae, 10%);
+        }
+      }
+    }
+    &+p:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .notices {
+    h2 {
+      color: #83b1df;
+      font-family: "Dosis-Regular";
+      @include adjust-font-size-to(24px, 1);
+      @include leader(2, 24px);
+      @include trailer(1, 24px);
+      text-transform: uppercase;
+    }
+    .datetime {
+      color: #999;
+      @include adjust-font-size-to(12px, 1);
+      border-bottom: 1px dashed #D8D3D3;
+      padding: 0 0 0 0;
+      margin: 0 40px;
     }
   }
 }
@@ -105,24 +178,6 @@ body {
   @include prepend-top();
 }
 */
-.video {
-  width: 100%;
-  height: rhythm(20);
-
-  iframe {
-    border: none;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.avatar {
-  height: rhythm(13);
-
-  img {
-    @include border-radius(50%);
-  }
-}
 
 
 /*
