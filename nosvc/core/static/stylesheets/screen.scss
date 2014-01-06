@@ -217,18 +217,14 @@ body {
   }
 }
 
-/*
-
-#attendees {
-  padding: 0;
-  margin: 0;
+.attendees {
   display: block;
   list-style: none;
 
   li {
     @include float-left;
-    width: span(2.5);
-    height: rhythm(5);
+    height: rhythm(4);
+    margin-right: gutter(8);
 
     img {
       @include border-radius(50%);
