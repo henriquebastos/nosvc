@@ -222,6 +222,7 @@ body {
 .attendees {
   display: block;
   list-style: none;
+  overflow: hidden;
 
   li {
     @include float-left;
