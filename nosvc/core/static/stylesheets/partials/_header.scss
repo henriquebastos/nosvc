@@ -54,18 +54,20 @@ header {
       font-size: 13px;
       text-decoration: none;
 
-      img {
-        vertical-align: middle;
+      i {
+        font-size: 15px;
+        @include rounded(1.7em, true);
+        text-shadow: none;
       }
     }
   }
-  .list a:hover {
+  .list i, .list a:hover {
     background-color: $header-list-hover-color;
   }
-  .new a:hover {
+  .new i, .new a:hover {
     background-color: $header-new-hover-color;
   }
-  .help a:hover {
+  .help i, .help a:hover {
     background-color: $header-help-hover-color;
   }
   .account {
