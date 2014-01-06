@@ -25,6 +25,111 @@ body {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
+// HELPERS
 @mixin susy-grid-background {
   @include grid-background($total-columns, $column-width, $gutter-width, $base-line-height, $grid-padding);
+}
+
+@mixin set-font($font-size: $base-font-size, $line-height: 1, $leader: 0, $trailer: 0){
+  @include adjust-font-size-to($font-size, $line-height);
+  @if $leader {
+    @include leader($leader, $font-size);
+  }
+  @if $trailer {
+    @include trailer($trailer, $font-size);
+  }
+}
+
+
+// DECORATIVES
+@mixin rounded($size: 2em, $with-shadow: false){
+  position: relative;
+  line-height: $size;
+  width: $size;
+  height: $size;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+
+  @if $with-shadow {
+    &:after {
+      content: ' ';
+      position: absolute;
+
+      top: -1px;
+      left: -1px;
+      border-radius: inherit;
+      border-top: $size / 2 solid rgba(0, 0, 0, 0.5);
+      border-right: $size / 2 solid rgba(0, 0, 0, 0.5);
+      border-bottom: $size / 2 solid rgba(0, 0, 0, 0.5);
+      border-left: $size / 2 solid rgba(0, 0, 0, 0.5);
+      z-index: -1;
+      width: 0;
+      height: 0;
+    }
+  }
+}
+
+.ribbon {
+  position: relative;
+  margin-left: -10px; //-2rem;
+  padding-left: 10px; //2rem;
+
+  border-color: rgba(0, 0, 0, 0.5);
+
+  &:before {
+    content: ' ';
+    position: absolute;
+
+    top: 0%;
+    right: -1px;
+
+    border-top-color: transparent;
+    border-right-color: inherit;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-style: solid;
+    border-width: 1.33em 1.33em;
+
+    width: 0;
+    height: 0;
+  }
+  &:after {
+    content: ' ';
+    position: absolute;
+
+    top: 100%;
+    left: 0%;
+
+    border-top: 0em solid transparent;
+    border-right-width: 10px;
+    border-right-color: inherit;
+    border-right-style: solid;
+    border-bottom: 10px solid transparent;
+    border-left: 0em solid transparent;
+
+    width: 0em;
+    height: 0em;
+  }
+  &.closed { //RED
+    background-color: #D95C5C !important;
+    border-color: darken(#D95C5C, 15%) !important;
+    color: #74171C !important;
+    text-shadow: darken(#D95C5C, 10%) 1px 1px 0px;
+
+    &:before {
+      border-right-color: #323334 !important;
+    }
+  }
+  &.open { //GREEN
+    background-color: #3DB290 !important;
+    border-color: darken(#3DB290, 15%) !important;
+    color: #fff !important;
+    text-shadow: darken(#3DB290, 20%) 1px 1px 0px;
+
+    &:before {
+      border-right-color: #323334 !important;
+    }
+  }
+
 }
