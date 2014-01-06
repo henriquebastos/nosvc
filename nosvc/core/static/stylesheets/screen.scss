@@ -13,7 +13,7 @@
 
 // Layout
 @include at-breakpoint(769px $total-columns) {
-  .container, header, footer {
+  .container, header, footer, .links {
     @include container;
     @include set-container-width($total-columns, magic);
   }
@@ -47,7 +47,9 @@ h2 {
   @include set-font(24px, 1.5, 1, 1.5);
   text-align: center;
 }
-h3 {
+h3,
+h4,
+h5 {
   color: #83b1df;
   font-family: "Dosis-Regular";
   @include set-font(24px, 1, 1, 1);
@@ -64,7 +66,7 @@ body {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-.headerFrame, .footerFrame {
+.headerFrame, .footerFrame, .linksFrame {
   @include pie-clearfix;
 }
 
@@ -232,43 +234,33 @@ body {
   }
 }
 
-body.detail {
-  #container, footer {
-    @include showgrid;
+.footerFrame { background-color: #393737; }
+footer {
+  @include container;
+
+  $logo-columns: floor($total-columns / 8);
+  $remain-columns: $total-columns - $logo-columns;
+
+  .logo {
+    @include span-columns($logo-columns);
+    a {
+      @include replace-text-with-dimensions('footer-logo.jpg');
+      display: block;
+    }
   }
-  #container {
-    @include container;
+  .actions {
+    @include span-columns($remain-columns / 3);
   }
-
-
-  #footer-frame {
-    //background-color: #393738;
+  .opendata {
+    @include span-columns($remain-columns / 3);
   }
-  footer {
-    @include container;
-
-    $logo-columns: floor($blueprint-grid-columns / 8);
-    $remain-columns: $blueprint-grid-columns - $logo-columns;
-
-    .logo {
-      @include column($logo-columns);
-      a {
-        @include replace-text-with-dimensions('footer-logo.jpg');
-        display: block;
-      }
-    }
-    .actions {
-      @include column($remain-columns / 3);
-    }
-    .opendata {
-      @include column($remain-columns / 3);
-    }
-    .social {
-      @include column($remain-columns / 3, true);
-    }
-    .links {
-      @include column($blueprint-grid-columns);
-    }
+  .social {
+    @include span-columns($remain-columns / 3 omega);
   }
 }
-*/
+
+.linksFrame { background-color: #332F2F;}
+.links {
+  @include span-columns($total-columns);
+  text-align: center;
+}
