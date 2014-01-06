@@ -28,12 +28,12 @@ header {
 }
 
 
-#header-frame {
-  //background-color: $header-light-bg-color;
+.headerFrame {
+  background-color: $header-light-bg-color;
 }
 header {
   color: $header-text-color;
-  //background-color: $header-dark-bg-color;
+  background-color: $header-dark-bg-color;
 
   font-family: "Dosis-SemiBold";
   text-transform: uppercase;
