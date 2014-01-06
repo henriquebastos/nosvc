@@ -195,6 +195,9 @@ body {
       @include rounded(2em, true);
     }
   }
+  p, ul {
+    padding-left: columns(1, 8) + gutter(8);
+  }
 }
 
 .status {
