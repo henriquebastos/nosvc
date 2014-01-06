@@ -5,7 +5,7 @@ $total-columns  : 24;             // a 12-column grid
 $column-width   : 30px;            // each column is 4em wide
 $gutter-width   : 10px;            // 1em gutters between columns
 $grid-padding   : 0;
-
+$container-style: fluid;
 
 // Don't move this @import above the GRID variables.
 @import "compass";
@@ -21,9 +21,6 @@ $grid-padding   : 0;
 
 @include establish-baseline;
 
-body {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
 
 // HELPERS
 @mixin susy-grid-background {

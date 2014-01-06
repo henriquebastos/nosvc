@@ -9,54 +9,132 @@
   </style>
 {% endblock css %}
 
-{% block content %}
-  <h1>Segundo Encontro de Introdução ao Cohousing</h1>
+{% block container %}
+  <div class="featured"></div>
+  <div class="detail">
+    <h1>Segundo Encontro de Introdução ao Cohousing</h1>
 
-  <div class="date-place row">
-    <ul>
-      <li>São Paulo</li>
-      <li>11/12/2013</li>
-    </ul>
-  </div>
+    <div class="date-place">
+      <ul>
+        <li>São Paulo</li>
+        <li>11/12/2013</li>
+      </ul>
+    </div>
 
-  <h2>
-    Cohousing: um grupo de pessoas amigas escolhem ser vizinhas e compartilhar espaços para uso comum com a intenção de criar laços comunitários
-  </h2>
+    <h2>
+      Cohousing: um grupo de pessoas amigas escolhem ser vizinhas e compartilhar espaços para uso comum com a intenção de criar laços comunitários
+    </h2>
 
-  <div class="video">
-    {# <iframe src="http://player.vimeo.com/video/1?title=0&byline=0&portrait=0"></iframe> #}
-    <iframe src="//player.vimeo.com/video/78092596" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  </div>
+    <div class="video">
+      {# <iframe src="http://player.vimeo.com/video/1?title=0&byline=0&portrait=0"></iframe> #}
+      <iframe src="//player.vimeo.com/video/78092596" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
 
-  <div class="social">
-    <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="Nos_vc" data-lang="pt">Tweetar</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </div>
+    <div class="social">
+      <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="Nos_vc" data-lang="pt">Tweetar</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
 
-  <h3>Sobre o encontro</h3>
+    <h3>Sobre o encontro</h3>
 
-  <p>
-    Vamos conversar sobre o que caracteriza Cohousing e suas diferentes tipologias. Vamos apresentar uma proposta de trabalho em duas fases na direção de sua realização. Cada fase se constituirá de algumas etapas. A primeira caminha na construção do grupo e a segunda na construção do lugar.
-  </p>
+    <p>
+      Vamos conversar sobre o que caracteriza Cohousing e suas diferentes tipologias. Vamos apresentar uma proposta de trabalho em duas fases na direção de sua realização. Cada fase se constituirá de algumas etapas. A primeira caminha na construção do grupo e a segunda na construção do lugar.
+    </p>
 
-  <h3>Com Lilian:</h3>
+    <h3>Com Lilian:</h3>
 
-  <div class="row">
-    <div class="profile row">
+    <div class="profile">
       <div class="photo">
         <img src="http://gravatar.com/avatar/6026196662ad6e219dca43ceeef61922.jpg?default=&amp;s=220">
       </div>
       <p class="name"><a href="/users/1-host">Lilian Avivia Lubochinski</a></p>
       <ul class="row">
-        <li><a href="#" target="_blank"><e class="fa fa-facebook"></e></a></li>
-        <li><a href="#" target="_blank"><e class="fa fa-twitter"></e></a></li>
-        <li><a href="#" target="_blank"><e class="fa fa-home"></e></a></li>
+        <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fa fa-home"></i></a></li>
       </ul>
     </div>
+
     <p>
       Lilian Avivia Lubochinski é arquiteta urbanista, morou em um kibutz em 1967. Cursou a faculdade de arquitetura em Israel quando se iniciou nos estudos de gerontologia. Trabalha amplamente com processos participativos de criação e projetos, design universal (inclusivo), sustentabilidade na construção , eficiência energética e harmonização ao território. Sua arquitetura tem especial sensibilidade para espaços de convivência social. Na proposta de Cohousing tecnologias sociais como Prática do Diáolgo, Visionamento e Dragon Dreaming se entrelaçam resultando na materialização do desejo coletivo.
     </p>
+  </div>
+
+  <div class="status">
+    <h3 class="ribbon closed">Inscrições encerradas</h3>
+    <p class="countdown">0 segundos restantes</p>
+    <p class="situation">Encontro Confirmado!</p>
+  </div>
+
+  <div class="info">
+    <h3><i class="fa fa-check"></i>Tá confirmado?</h3>
+
+    <p>
+      Sim! Este encontro atingiu o número mínimo de inscritos e foi confirmado.
+      Mas as inscrições já encerraram. Você não conseguiu se inscrever?
+      Entre em contato com Lilian Avivia Lubochinski e dê vida a um novo encontro.
+    </p>
+
+    <h3><i class="fa fa-dollar"></i>Quanto?</h3>
+
+    <p>R$ 30,00</p>
+
+    <p>Inscrição individual.</p>
+
+    <p>1 vaga disponível até 10/12/2013</p>
+
+    <h3><i class="fa fa-calendar"></i>Quando?</h3>
+
+    <p>
+      Quarta, 11 de Dezembro de 2013 das 19h às 22h.
+    </p>
+
+    <h3><i class="fa fa-map-marker"></i>Onde?</h3>
+
+    <p>Meeting address.</p>
+
+    <h3><i class="fa fa-user"></i>Quem está organizando?</h3>
+
+    <div class="profile">
+        <div class="photo">
+          <img src="http://gravatar.com/avatar/6026196662ad6e219dca43ceeef61922.jpg?default=&amp;s=220">
+        </div>
+        <p class="name"><a href="/users/1-host">Lilian Avivia Lubochinski</a></p>
+        <ul class="row">
+          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-home"></i></a></li>
+        </ul>
+      </div>
+    <h3><i class="fa fa-group"></i> Quem vai?</h3>
+
+    <p>34 pessoas inscritas</p>
+
+    <p>0 vagas restantes</p>
+
+    <ul id="attendees">
+      <li>
+        <a href="/users/3-guest/">
+          <img src="{% static 'images/attendee-anon.png' %}">
+        </a>
+      </li>
+      <li>
+        <a href="/users/3-guest/">
+          <img src="{% static 'images/attendee-anon.png' %}">
+        </a>
+      </li>
+      <li>
+        <a href="/users/3-guest/">
+          <img src="{% static 'images/attendee-anon.png' %}">
+        </a>
+      </li>
+      <li>
+        <a href="/users/3-guest/">
+          <img src="{% static 'images/attendee-anon.png' %}">
+        </a>
+      </li>
+    </ul>
   </div>
 
   <div class="notices">
@@ -88,92 +166,12 @@
       <br>
       Lilian <br>
     </p>
-
   </div>
 
-  <h3>Recomende, pergunte e construa este encontro:</h3>
-
   <div class="comments">
+    <h3>Recomende, pergunte e construa este encontro:</h3>
+
     <div class="fb-comments" data-href="http://example.com/comments" data-numposts="5" data-colorscheme="light"></div>
   </div>
 
-{% endblock content %}
-
-{% block sidebar %}
-  <div class="status">
-    <h2 class="ribbon closed">Inscrições encerradas</h2>
-    <p class="countdown">0 segundos restantes</p>
-    <p class="situation">Encontro Confirmado!</p>
-  </div>
-
-
-  <h2>Tá confirmado?</h2>
-
-  <p>
-    Sim! Este encontro atingiu o número mínimo de inscritos e foi confirmado.
-    Mas as inscrições já encerraram. Você não conseguiu se inscrever?
-    Entre em contato com Lilian Avivia Lubochinski e dê vida a um novo encontro.
-  </p>
-
-  <h2>Quanto?</h2>
-
-  <p>R$ 30,00</p>
-
-  <p>Inscrição individual.</p>
-
-  <p>1 vaga disponível até 10/12/2013</p>
-
-  <h2>Quando?</h2>
-
-  <p>
-    Quarta, 11 de Dezembro de 2013 das 19h às 22h.
-  </p>
-
-  <h2>Onde?</h2>
-
-  <p>Meeting address.</p>
-
-  <h2>Quem está organizando?</h2>
-
-  <div class="avatar">
-    <img src="http://gravatar.com/avatar/6026196662ad6e219dca43ceeef61922.jpg?default=&amp;s=220">
-  </div>
-
-  <p>
-    <a href="/users/2-organizer/">Organizer</a>
-  </p>
-  <ul>
-    <li><a href="#" target="_blank">Perfil no facebook</a></li>
-    <li><a href="#" target="_blank">Perfil no twitter</a></li>
-    <li><a href="#" target="_blank">Outro</a></li>
-  </ul>
-
-  <h2>Quem vai?</h2>
-
-  <p>34 pessoas inscritas</p>
-
-  <p>0 vagas restantes</p>
-
-  <ul id="attendees">
-    <li>
-      <a href="/users/3-guest/">
-        <img src="{% static 'images/attendee-anon.png' %}">
-      </a>
-    </li>
-    <li>
-      <a href="/users/3-guest/">
-        <img src="{% static 'images/attendee-anon.png' %}">
-      </a>
-    </li>
-    <li>
-      <a href="/users/3-guest/">
-        <img src="{% static 'images/attendee-anon.png' %}">
-      </a>
-    </li>
-    <li>
-      <a href="/users/3-guest/">
-        <img src="{% static 'images/attendee-anon.png' %}">
-      </a>
-    </li>
-  </ul>
-{% endblock sidebar %}
+{% endblock container %}

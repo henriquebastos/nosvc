@@ -14,7 +14,7 @@
   {% block css %}
   {% endblock css %}
 </head>
-<body class="detail bp showgrid">
+<body>
 <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -23,7 +23,7 @@
     js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
-  <div id="header-frame">
+  <div class="headerFrame">
     <header>
       <nav>
         <ul>
@@ -40,21 +40,11 @@
       </nav>
     </header>
   </div>
-  <div id="container">
-    <section id="featured">
-      {% block featured %}
-      {% endblock featured %}
-    </section>
-    <section id="content">
-      {% block content %}
-      {% endblock content %}
-    </section>
-    <section id="sidebar">
-      {% block sidebar %}
-      {% endblock sidebar %}
-    </section>
+  <div class="container">
+    {% block container %}
+    {% endblock container %}
   </div>
-  <div id="footer-frame">
+  <div class="footerFrame">
     <footer>
       <div class="logo">
         <a href="/">Nós.vc</a>

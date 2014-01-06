@@ -10,10 +10,8 @@ $header-help-hover-color: #ed6569;
 
 
 header {
-  @include container;
-
   li {
-    width: columns(5);
+    width: 20%;
     float: left;
     line-height: rhythm(2);
 

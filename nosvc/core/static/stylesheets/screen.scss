@@ -1,90 +1,133 @@
 @import "partials/base";
 @import "partials/header";
 
-.row, .col {
-  overflow: hidden;
+
+// DEBUG
+.container, header, footer {
+  @include susy-grid-background;
+}
+.featured, .detail, .notices, .comments, .status {
+  opacity: 0.5;
 }
 
-$footer-frame-bg-color: #393738;
 
-$text-color: #5d5d5d;
-$text-color-light: #fff;
-
-body {
-  color: $text-color;
+// Layout
+@include at-breakpoint(769px $total-columns) {
+  .container, header, footer {
+    @include container;
+    @include set-container-width($total-columns, magic);
+  }
+  .detail, .notices, .comments {
+    @include span-columns(16 omega);
+    h1, h2, h3, p, .social, .fb-comments {
+     @include pad(1, 1, 16);
+    }
+    .profile {
+      @include span-columns(6 omega, 16);
+    }
+  }
+  .status, .info {
+    padding-right: gutter() * 2;
+    width: columns(8) + gutter();
+    float: left;
+  }
 }
 
+
+// Text
 h1 {
-  color: $text-color;
   font-family: "Dosis-Regular";
-  @include adjust-font-size-to(42px, 2);
-  @include leader(2, 42px);
-  @include trailer(1, 42px);
+  @include set-font(42px, 2, 2, 1);
   letter-spacing: -1px;
   text-align: center;
   text-transform: uppercase;
 }
 h2 {
   font-family: "Dosis-Light";
-  @include adjust-font-size-to(24px, 1.5);
-  @include leader(1, 24px);
-  @include trailer(1.5, 24px);
+  @include set-font(24px, 1.5, 1, 1.5);
   text-align: center;
 }
 h3 {
   color: #83b1df;
   font-family: "Dosis-Regular";
-  @include adjust-font-size-to(24px, 1);
-  @include leader(1, 24px);
-  @include trailer(1, 24px);
+  @include set-font(24px, 1, 1, 1);
+}
+p {
+  @include leader(1);
+  @include trailer(1);
 }
 
 
-
-#container, footer {
-  @include container;
-}
-#container, header, footer {
-  @include susy-grid-background;
+body {
+  color: #5d5d5d;
+  background-color: #F6F3EC;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
+.headerFrame, .footerFrame {
+  @include pie-clearfix;
+}
 
-#featured {
-  width: 100%;
+.featured {
   min-height: rhythm(18);
 }
 
-#content {
+.profile {
+  @include trailer(1);
+  text-align: center;
+
+  .photo {
+    height: rhythm(9);
+    img {
+      @include border-radius(50%);
+    }
+  }
+  .name a {
+    color: #3772ae;
+    @include adjust-font-size-to(18px, 1);
+    font-family: "Dosis-Medium";
+    text-shadow: #fff 1px 1px 0px;
+    text-decoration: none;
+  }
+  li {
+    margin-right: 10px;
+    display: inline-block;
+    a {
+      display: block;
+      color: white;
+      background-color: #3772ae;
+
+      @include rounded(1.5em);
+
+      &:hover {
+        background-color: lighten(#3772ae, 10%);
+      }
+    }
+  }
+}
+
+.detail {
   background-color: #F9F9F9;
-
-  $content-columns: 16;
-  $remain-columns: 8;
-
-  @include span-columns(16 omega);
   @include leader(-5);
 
-  h1, h2, h3, p, .social, .comments {
-    @include pad(1, 1, 16);
-  }
-
   .date-place {
-    color: $text-color-light;
+    color: #fff;
     background: image-url('meeting-detail-bg-dashed.gif') repeat-x left center;
     font-family: "Dosis-Regular";
-    @include adjust-font-size-to(16px);
-    @include trailer(1, 16px);
+    @include set-font(16px, 1, 0, 1);
+    @include pie-clearfix;
+    text-align: right;
 
     li {
-      width: columns(3, $content-columns);
-      float: left;
+      padding: 0 1em;
       text-align: center;
+      display: inline-block;
 
       &:first-child {
-        margin-left: space(10,$content-columns) + gutter($content-columns);
         background-color: #434242;
       }
       &:last-child {
-        @include omega;
+        float: right;
         background-color: #83B1DF;
       }
     }
@@ -92,7 +135,7 @@ h3 {
 
   .video {
     width: 100%;
-    height: rhythm(20);
+    height: rhythm(15);
     @include trailer(1);
 
     iframe {
@@ -103,77 +146,55 @@ h3 {
   }
 
   .social {
-    min-height: rhythm(1);
+    height: rhythm(1);
     @include trailer(1);
   }
 
-  p {
-    @include leader(1);
-    @include trailer(1);
-  }
-
-  .profile {
-    @include span-columns(6 omega, $content-columns);
-    text-align: center;
-
-    .photo {
-      height: rhythm(9);
-      img {
-        @include border-radius(50%);
-      }
-    }
-    .name a {
-      color: #3772ae;
-      @include adjust-font-size-to(18px, 1);
-      font-family: "Dosis-Medium";
-      text-shadow: #fff 1px 1px 0px;
-      text-decoration: none;
-    }
-    li {
-      margin-right: gutter($content-columns);
-      display: inline-block;
-      a {
-        display: block;
-        color: white;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: #3772ae;
-        &:hover {
-          background-color: lighten(#3772ae, 10%);
-        }
-      }
-    }
-    &+p:first-of-type {
-      margin-top: 0;
-    }
-  }
-
-  .notices {
-    h2 {
-      color: #83b1df;
-      font-family: "Dosis-Regular";
-      @include adjust-font-size-to(24px, 1);
-      @include leader(2, 24px);
-      @include trailer(1, 24px);
-      text-transform: uppercase;
-    }
-    .datetime {
-      color: #999;
-      @include adjust-font-size-to(12px, 1);
-      border-bottom: 1px dashed #D8D3D3;
-      padding: 0 0 0 0;
-      margin: 0 40px;
-    }
+  .profile+p:first-of-type {
+    margin-top: 0;
   }
 }
 
-#sidebar {
-  $content-columns: 8;
-  $remain-columns: 16;
+.notices {
+  background-color: #F9F9F9;
+  h2 {
+    color: #83b1df;
+    font-family: "Dosis-Regular";
+    @include set-font(24px, 1, 2, 1);
+    text-transform: uppercase;
+  }
+  .datetime {
+    color: #999;
+    @include set-font(12px, 1);
+    border-bottom: 1px dashed #D8D3D3;
+    padding: 0 0 0 0;
+    margin: 0 40px;
+  }
+}
 
-  @include span-columns(8);
-  //@include pull(17);
+.comments {
+  background-color: #F9F9F9;
+  div {
+
+  }
+}
+
+.info {
+  h3 {
+    font-family: "Dosis-Medium";
+    @include adjust-font-size-to(24px, 2);
+    padding-left: 10px;
+
+    i {
+      color: #fff;
+      background-color: #83B1DF;
+      left: -10px;
+      font-size: 0.625em;
+      text-shadow: darken(#83B1DF, 30%) 1px 1px 1px;
+
+      @include rounded(2em, true);
+    }
+  }
 }
 
 .status {
@@ -182,79 +203,14 @@ h3 {
   height: rhythm(10);
   padding-top: 1em;
 
-  h2 {
+  h3 {
+    @include set-font(14px, 1.5, 0.5, 0);
     font-family: "Dosis-Medium";
-    @include adjust-font-size-to(13px, 1.5);
-    @include leader(0.5, 13px);
     text-align: left;
     text-transform: uppercase;
     text-shadow: rgba(0, 0, 0, 0.5);
 
-    width: 55%;
-
-    &.ribbon {
-
-      position: relative;
-      margin-left: -10px; //-2rem;
-      padding-left: 10px; //2rem;
-
-      border-color: rgba(0, 0, 0, 0.5);
-
-      &:before {
-        content: ' ';
-        position: absolute;
-
-        top: 0%;
-        right: -1px;
-
-        border-top-color: transparent;
-        border-right-color: inherit;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-style: solid;
-        border-width: 1.33em 1.33em;
-
-        width: 0;
-        height: 0;
-      }
-      &:after {
-        content: ' ';
-        position: absolute;
-
-        top: 100%;
-        left: 0%;
-
-        border-top: 0em solid transparent;
-        border-right-width: 10px;
-        border-right-color: inherit;
-        border-right-style: solid;
-        border-bottom: 10px solid transparent;
-        border-left: 0em solid transparent;
-
-        width: 0em;
-        height: 0em;
-      }
-      &.closed {
-        background-color: #D95C5C !important;
-        border-color: darken(#D95C5C, 15%) !important;
-        color: #74171C !important;
-        text-shadow: darken(#D95C5C, 10%) 1px 1px 0px;
-
-        &:before {
-          border-right-color: #323334 !important;
-        }
-      }
-      &.open {
-        background-color: #3DB290 !important;
-        border-color: darken(#3DB290, 15%) !important;
-        color: #fff !important;
-        text-shadow: darken(#3DB290, 20%) 1px 1px 0px;
-
-        &:before {
-          border-right-color: #323334 !important;
-        }
-      }
-    }
+    width: 13em;
   }
 }
 
@@ -287,7 +243,7 @@ body.detail {
 
 
   #footer-frame {
-    //background-color: $footer-frame-bg-color;
+    //background-color: #393738;
   }
   footer {
     @include container;
